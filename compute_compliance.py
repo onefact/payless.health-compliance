@@ -21,6 +21,10 @@ from tqdm.asyncio import tqdm
 
 import polars as pl
 
+def isin(chunk, *args):
+    '''checks if any of args are in the chunk'''
+    return any([s in chunk for s in args])
+
 def filename_check(filename):
     rex = re.compile('[0-9]{2}-?[0-9]{7}_?.*_?standardcharges.*')
     if re.match(rex, filename):
