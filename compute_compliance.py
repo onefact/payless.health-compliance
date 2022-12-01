@@ -284,6 +284,8 @@ async def checker(session, url):
         aiohttp.ServerDisconnectedError,
         aiohttp.InvalidURL,
         NewConnectionError,
+        asyncio.TimeoutError,
+        asyncio.CancelledError,
         TimeoutError,
         ValueError,
     ):
