@@ -12,6 +12,7 @@ import pandas as pd
 import requests
 requests.packages.urllib3.disable_warnings() 
 
+from urllib3.exceptions import NewConnectionError
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -233,6 +234,7 @@ async def checker(session, url):
             aiohttp.ClientConnectorError,
             aiohttp.ServerDisconnectedError,
             aiohttp.InvalidURL,
+            NewConnectionError,
             TimeoutError,
             ValueError):
         vals[-1] = 2
